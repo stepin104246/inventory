@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form,div{
+            text-align: center;
+            font-size: 30px;
+        }
+        button{
+            font-size: 15px;;
+        }
+        input{
+            font-size: 20px;
+        }
+        body{
+            text-align: center;
+            font-size: 180%;
+            background-color:burlywood;
+            background-image: url("images/img4") ;
+            background-repeat: no-repeat;
+            background-size:100%;
+        }
+        
+           
+        
+        h1{
+            text-align: center;
+           
+        }
+    </style>
+     <script>
+        function validata() {
+ 
+            var names=['Charan','CharanTeja','Tejaa'];
+            var flag;
+            flag = 1;
+            if(flag == 1){
+ 
+           
+            if(document.getElementById("username").value.length<5 || document.getElementById("username").value.length>15) {
+                flag++;
+                alert("Username is not in the length of 5 to 15");
+            }
+            
+            else if(!document.getElementById("pass").value.match(/[a-z]/g) || !document.getElementById("pass").value.match(/[A-Z]/g) || !document.getElementById("pass").value.match(/[0-9]/g) || !document.getElementById("pass").value.match(/[!@#$%^&*]/g)) {
+                flag++;
+    
+                alert("Invalid password, please use all the characters.");
+            }
+ 
+            else if(!document.getElementById("mail").value.match(/[a-z A-Z 0-9]+[@]+[a-z]+[.]+[a-z]/)) {
+                flag++;
+                alert("Email id is not valid.");
+            }
+ 
+         else if(document.getElementById("phone").value.length!=10 ) {
+                flag++;
+                alert("Contact must have 10 digits");
+            }
+ 
+          else if( flag == 1)
+            {
+                for(let i =0; i<names.length; i++)
+                { 
+                    if(document.getElementById("username").value == names[i]){
+                        flag++;
+                        alert('user name exists');
+                    }
+                    
+                }
+                
+                
+            }
+   
+            if(flag == 1)
+            {   
+               
+                alert('Successfully Registered');
+                document.getElementById("printhere").innerHTML="successfully registered";
+                
+            }
+        }
+    }
+ 
+    </script>
+</head>
+<body >
+    <h1>Form Validation</h1>
+    <form>
+        
+
+        <p>Name <input type="text" id="username"> <br></p>
+        <p> Password <input type="password" id="pass"> <br></p>
+        <p> Email <input type="text" id="mail"> <br></p>
+        <p> Contact <input type="number" id="phone"> <br></p>
+    
+        <p> Register:<input type="button" value="submit" onclick="validata()"></p>
+   
+    <div id="printhere">
+ 
+    </div>
+</form>
+<br>
+<br>
+<form action="http://localhost:3332/Client.html">
+    Submit The Form
+    <input type="submit">
+</form>
+</body>
+</html>
